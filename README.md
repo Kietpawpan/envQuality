@@ -1,1 +1,1 @@
-Environmental Quality Dashboard(https://kietpawpan.github.io/envQuality/)
+[Environmental Quality Dashboard](https://kietpawpan.github.io/envQuality/)
