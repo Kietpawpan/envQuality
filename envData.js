@@ -33,8 +33,8 @@
         const carbonEmissionData = [6634801, 1657363, 1723010, 1413234, 902467]; // Total (tonCo2eq)
         const carbonEmissionReductionData = [7795, 7328, 5534, 4959, 0]; // Reduction (tonCo2eq)
 		const carbonEmissionTarget = [0.21, 0.21, 0.21, 0.21, 0.21]; // Target 21% from the base year
-		const targets = [61, 37.5, "ร้อยละ 80", "ร้อยละ 50", 70, "ร้อยละ 21 จากปีฐาน"]; // Target note in the tables.
-		const targetsText = ["61 (พอใช้)", "37.5 μg/m³", "ร้อยละ 80", "ร้อยละ 50", "70 dBA", "ร้อยละ 21 จากปีฐาน"]; // Target note in the tables.
+		const targets = [61, 37.5, "ร้อยละ 80", "ร้อยละ 50", 70, "ร้อยละ 21 จากปีฐาน", 0, 100]; // Target note in the tables.
+		const targetsText = ["61 (พอใช้)", "37.5 μg/m³", "ร้อยละ 80", "ร้อยละ 50", "70 dBA", "ร้อยละ 21 จากปีฐาน", "-", 'ร้อยละ 100']; // Target note in the tables.
 		const Wtargets = 0.8; // 80% solid waste are expected to be properly managed.
 	    const pm25target = 37.5; // ppm
 	    const population = [876082+908559, 639009+652122, 479874+492227, 481709+490296, 253342+254983]; // ppm
@@ -55,3 +55,11 @@
 		
 		const pm25Limit = [pm25KhonKaen67, pm25RoiEt67, pm25Kalasin67, pm25Mahasalakham67, pm25Nongbuolampu67];	
 		const pm25Data = [pm25Khonkaen68, pm25RoiEt68, pm25Kalasin68, pm25Mahasalakham68, pm25Nongbuolampu68]; //Average PM2.5 all year round (ppm)
+		// Petitions 
+		const issueKH = 30; 
+		const issueRE = 5; 		
+		const issueKS = 3; 		
+		const issueMK = 1; 		
+		const issueNB = 2; 
+		const issueData = [issueKH, issueRE,issueKS,issueMK,issueNB];
+		const issueSolved = [30, 5, 3, 1, 2];
