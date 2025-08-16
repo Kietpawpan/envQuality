@@ -10,7 +10,7 @@
 <script src="envData.js"></script>
 <body>
 
-    <h1>คุณภาพสิ่งแวดล้อม พ.ศ. 2568</h1>
+    <h1>คุณภาพสิ่งแวดล้อม พ.ศ. 2567</h1>
     <h3>สำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</h3>
 
     <div class="dashboard-container">
@@ -171,11 +171,33 @@
                     <tr><td>กาฬสินธุ์</td><td id="pop2"></td></tr>
                     <tr><td>มหาสารคาม</td><td id="pop3"></td></tr>
                     <tr><td>หนองบัวลำภู</td><td id="pop4"></td></tr>
-					 	      <tr class="target-row"><td>เป้าหมาย</td><td id="t5"></td></tr>  
+					 	      <tr class="target-row"><td>เป้าหมาย</td><td id="t6"></td></tr>  
                 </tbody>
             </table>
         </div>
-        
+       
+		    <div class="dashboard-card">
+            <h2>Petition</h2>
+            <div class="chart-container">
+                <canvas id="petitionChart" class="clickable-row" data-href="petition.html"></canvas>
+            </div>
+            <table class="clickable-row" data-href="petition.html">
+                <thead>
+                    <tr>
+                        <th>จังหวัด</th>
+                        <th>ยุติ (เรื่อง)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ขอนแก่น</td><td id="pet0"></td></tr>
+                    <tr><td>ร้อยเอ็ด</td><td id="pet1"></td></tr>
+                    <tr><td>กาฬสินธุ์</td><td id="pet2"></td></tr>
+                    <tr><td>มหาสารคาม</td><td id="pet3"></td></tr>
+                    <tr><td>หนองบัวลำภู</td><td id="pet4"></td></tr>
+					 	      <tr class="target-row"><td>เป้าหมาย</td><td id="t7"></td></tr>  
+                </tbody>
+            </table>
+        </div>	   
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -187,6 +209,7 @@
         const hazardousWasteTarget = hazardousWasteData.map(value => value * hazardousWasteGoodFraction);
         const noiseTarget = Array(labels.length).fill(targets[4]);
         const carbonEmissionTargetValue = carbonEmissionData.map(value => value * carbonEmissionTarget[0]);
+		const issueTarget = issueData.map(value => value);
 
         // Chart.js configuration and creation
         const createChart = (ctx, data, label, color, targetData, targetLabel) => {
@@ -294,8 +317,16 @@
             'rgba(0, 0, 255, 0.5)',
          
         );
-  
-for (let j = 0; j < 6; j++) {
+  		createChart(
+            document.getElementById('petitionChart').getContext('2d'), 
+            issueData, 
+            'จำนวน (เรื่อง)', 
+            'rgba(0, 0, 24, 0.5)',
+			issueTarget,
+			'เป้าหมาย'
+         
+        );
+for (let j = 0; j < 8; j++) {
 document.getElementById("t"+j).innerHTML = targetsText[j];
 };
 for (let i = 0; i < 5; i++) {
@@ -311,7 +342,9 @@ document.getElementById("noise"+i).innerHTML = noiseData[i] + " (" + (noiseData[
 
 document.getElementById("carbon"+i).innerHTML = carbonEmissionReductionData[i].toLocaleString() + " (" + (carbonEmissionReductionData[i] - carbonEmissionData[i]*carbonEmissionTarget[i]).toLocaleString() + ")";
 
-document.getElementById("pop"+i).innerHTML = population[i].toLocaleString()
+document.getElementById("pop"+i).innerHTML = population[i].toLocaleString();
+
+document.getElementById("pet"+i).innerHTML = issueSolved[i] + " (" + (issueSolved[i]/issueData[i]*100).toFixed(0) + "%)";
 
 if (waterQualityData[i] - targets[0]<0){document.getElementById("water"+i).style.color = 'red';}
 else{document.getElementById("water"+i).style.color = 'green';}
@@ -343,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 <p>
-<center><font size="-1">ปรับปรุง ครั้งที่ 2 เมื่อ 15 สิงหาคม 2568 (<font color='red'>ฉบับร่าง ห้ามอ้างอิง</font>) โดย สำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</font></center>
+<center><font size="-1">ที่มา : ปรับปรุงจาก<a href='EPO10Report2567.pdf'>รายงานสถานการณ์คุณภาพสิ่งแวดล้อม ปี พ.ศ. 2567</a> ของสำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</font></center>
 </p>
 </body>
 </html>
