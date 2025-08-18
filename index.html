@@ -196,7 +196,30 @@
 					 	      <tr class="target-row"><td>เป้าหมาย</td><td id="t7"></td></tr>  
                 </tbody>
             </table>
-        </div>	   
+        </div>
+
+		    <div class="dashboard-card">
+            <h2>Pollutors</h2>
+            <div class="chart-container">
+                <canvas id="pollutorChart" class="clickable-row" data-href="pollutors.pdf"></canvas>
+            </div>
+            <table class="clickable-row" data-href="pollutors.pdf">
+                <thead>
+                    <tr>
+                        <th>จังหวัด</th>
+                        <th>ตรวจสอบ (แห่ง)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ขอนแก่น</td><td id="poll0"></td></tr>
+                    <tr><td>ร้อยเอ็ด</td><td id="poll1"></td></tr>
+                    <tr><td>กาฬสินธุ์</td><td id="poll2"></td></tr>
+                    <tr><td>มหาสารคาม</td><td id="poll3"></td></tr>
+                    <tr><td>หนองบัวลำภู</td><td id="poll4"></td></tr>
+					 	      <tr class="target-row"><td>เป้าหมาย</td><td id="t8"></td></tr>  
+                </tbody>
+            </table>
+        </div>	   		
     </div>
 	<p>
 <center><font size="-1">ที่มา : ปรับปรุงจาก<a href='EPO10Report2567.pdf'>รายงานสถานการณ์คุณภาพสิ่งแวดล้อม ปี พ.ศ. 2567</a> ของสำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</font></center>
@@ -327,8 +350,17 @@
 			issueTarget,
 			'เป้าหมาย'
          
+        );	
+ 		createChart(
+            document.getElementById('pollutorChart').getContext('2d'), 
+            pollutorData, 
+            'จำนวน (เรื่อง)', 
+            'rgba(255, 165, 0, 0.7)',
+			pollutorTarget,
+			'เป้าหมาย'
+         
         );
-for (let j = 0; j < 8; j++) {
+for (let j = 0; j < 9; j++) {
 document.getElementById("t"+j).innerHTML = targetsText[j];
 };
 for (let i = 0; i < 5; i++) {
@@ -347,6 +379,8 @@ document.getElementById("carbon"+i).innerHTML = carbonEmissionReductionData[i].t
 document.getElementById("pop"+i).innerHTML = population[i].toLocaleString();
 
 document.getElementById("pet"+i).innerHTML = issueSolved[i] + " (" + (issueSolved[i]/issueData[i]*100).toFixed(0) + "%)";
+
+document.getElementById("poll"+i).innerHTML = pollutorData[i] + " (" + (pollutorData[i]/pollutorTarget[i]*100).toFixed(0) + "%)";
 
 if (waterQualityData[i] - targets[0]<0){document.getElementById("water"+i).style.color = 'red';}
 else{document.getElementById("water"+i).style.color = 'green';}
