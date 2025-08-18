@@ -7,7 +7,6 @@
    <link rel="stylesheet" href="epo10.css">
   
 </head>
-<script src="envData.js"></script>
 <body>
 
     <h1>คุณภาพสิ่งแวดล้อม พ.ศ. 2567</h1>
@@ -18,9 +17,9 @@
         <div class="dashboard-card">
             <h2>Water Quality 💧</h2>
             <div class="chart-container">
-                <canvas id="waterQualityChart" class="clickable-row" data-href="surfaceWater.pdf"></canvas>
+                <canvas id="waterQualityChart" class="clickable-row" data-href="water.pdf"></canvas>
             </div>
-            <table class="clickable-row" data-href="surfaceWater.pdf">
+            <table class="clickable-row" data-href="water.pdf">
                 <thead>
                     <tr>
                         <th>จังหวัด</th>
@@ -199,7 +198,10 @@
             </table>
         </div>	   
     </div>
-
+	<p>
+<center><font size="-1">ที่มา : ปรับปรุงจาก<a href='EPO10Report2567.pdf'>รายงานสถานการณ์คุณภาพสิ่งแวดล้อม ปี พ.ศ. 2567</a> ของสำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</font></center>
+</p>
+<script src="envData.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
    
@@ -375,8 +377,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 </script>
-<p>
-<center><font size="-1">ที่มา : ปรับปรุงจาก<a href='EPO10Report2567.pdf'>รายงานสถานการณ์คุณภาพสิ่งแวดล้อม ปี พ.ศ. 2567</a> ของสำนักงานสิ่งแวดล้อมและควบคุมมลพิษที่ 10 (ขอนแก่น)</font></center>
-</p>
+
 </body>
 </html>
