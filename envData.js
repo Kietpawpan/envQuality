@@ -1,3 +1,15 @@
+// Times 
+function getBEYear(date) {
+  const gregorianYear = date.getFullYear();
+  const buddhistYear = gregorianYear + 543;
+  return buddhistYear;
+}
+		const today = new Date();
+		const beYear = getBEYear(today);
+		const carbonEndYear = 2573;
+		const carbonReductionTime = carbonEndYear - Number(beYear); 
+
+		
 // Data for the charts (replace with dynamic data from an API)
         const labels = ['ขอนแก่น', 'ร้อยเอ็ด', 'กาฬสินธุ์', 'มหาสารคาม', 'หนองบัวลำภู'];
         const waterQualityData = [90, 65, 80, 77, 72,]; // Placeholder for quality scores
@@ -30,9 +42,11 @@
 		const hazardousWasteGood = [hazardousWasteGoodKH, hazardousWasteGoodRE,hazardousWasteGoodKS,hazardousWasteGoodMK,hazardousWasteGoodNB]; // Fraction of proper hazardous waste management
 		const hazardousWasteGoodFraction = 0.5; // Target 50%
         const noiseData = [69, 68, 65, 50, 60]; // dBA
-        const carbonEmissionData = [6634801, 1657363, 1723010, 1413234, 902467]; // Total (tonCo2eq)
+		
+// https://ccf.tgo.or.th/eplatform-home/ Potential reduction in 2573 B.E. are deemed as the reduction targets.
+        const carbonEmissionData = [2275747/carbonReductionTime, 582982/carbonReductionTime, 608542/carbonReductionTime, 837460/carbonReductionTime, 125489/carbonReductionTime]; // Total (tonCo2eq)
         const carbonEmissionReductionData = [7795, 7328, 5534, 4959, 0]; // Reduction (tonCo2eq)
-		const carbonEmissionTarget = [0.21, 0.21, 0.21, 0.21, 0.21]; // Target 21% from the base year
+		const carbonEmissionTarget = [1, 1, 1, 1, 1]; // Target 21% from the base year
 		const targets = [61, 37.5, "ร้อยละ 80", "ร้อยละ 50", 70, "ร้อยละ 21 จากปีฐาน", 0, 100, 100]; // Target note in the tables.
 		const targetsText = ["61 (พอใช้)", "37.5 μg/m³", "ร้อยละ 80", "ร้อยละ 50", "70 dBA", "ร้อยละ 21 จากปีฐาน", "-", 'ร้อยละ 100', 'ร้อยละ 100']; // Target note in the tables.
 		const Wtargets = 0.8; // 80% solid waste are expected to be properly managed.
