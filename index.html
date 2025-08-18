@@ -374,7 +374,7 @@ document.getElementById("hazard"+i).innerHTML = (hazardousWasteGood[i]).toFixed(
 
 document.getElementById("noise"+i).innerHTML = noiseData[i] + " (" + (noiseData[i] - targets[4]) + ")";
 
-document.getElementById("carbon"+i).innerHTML = carbonEmissionReductionData[i].toLocaleString() + " (" + (carbonEmissionReductionData[i] - carbonEmissionData[i]*carbonEmissionTarget[i]).toLocaleString() + ")";
+document.getElementById("carbon"+i).innerHTML = carbonEmissionReductionData[i].toLocaleString() + " (" + (carbonEmissionReductionData[i]/carbonEmissionData[i]*100).toFixed(0).toLocaleString() + "%)";
 
 document.getElementById("pop"+i).innerHTML = population[i].toLocaleString();
 
@@ -397,7 +397,7 @@ else{document.getElementById("hazard"+i).style.color = 'green';}
 if (noiseData[i] - targets[4]<0){document.getElementById("noise"+i).style.color = 'green';}
 else{document.getElementById("noise"+i).style.color = 'red';}
 
-if ((carbonEmissionReductionData[i] - carbonEmissionData[i]*carbonEmissionTarget[i])<0){document.getElementById("carbon"+i).style.color = 'red';}
+if (carbonEmissionReductionData[i] - carbonEmissionData[i]<0){document.getElementById("carbon"+i).style.color = 'red';}
 else{document.getElementById("carbon"+i).style.color = 'green';}
 };
 
